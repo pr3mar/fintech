@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="Fintech Hack 2016">
     <meta name="author" content="Burnt Creators">
@@ -20,39 +20,58 @@
 
 <body>
 
-<div class="site-wrapper">
+<div class="site-wrapper toggled" id="wrapper">
 
-    <div class="site-wrapper-inner">
+    <!-- Sidebar menu -->
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li class="sidebar-brand">
+                <a href="#">
+                    Start Bootstrap
+                </a>
+            </li>
+            <li>
+                <a href="#">Dashboard</a>
+            </li>
+            <li>
+                <a href="#">Shortcuts</a>
+            </li>
+            <li>
+                <a href="#">Overview</a>
+            </li>
+            <li>
+                <a href="#">Events</a>
+            </li>
+            <li>
+                <a href="#">About</a>
+            </li>
+            <li>
+                <a href="#">Services</a>
+            </li>
+            <li>
+                <a href="#">Contact</a>
+            </li>
+        </ul>
+    </div>
 
-        <div class="cover-container">
+    <div id="nav-icon1">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
 
-            <div class="masthead clearfix">
-                <div class="inner">
-                    <h3 class="masthead-brand">Cover</h3>
-                    <nav>
-                        <ul class="nav masthead-nav">
-                            <li class="active"><a href="#">Home</a></li>
-                            <li><a href="#">Features</a></li>
-                            <li><a href="#">Contact</a></li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-
+    <!-- content -->
+    <div class="site-wrapper-inner" id="page-content-wrapper">
+        <div class="cover-container container-fluid">
             <div class="inner cover">
                 <h1 class="cover-heading">Cover your page.</h1>
                 <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download,
                     edit the text, and add your own fullscreen background photo to make it your own.</p>
                 <p class="lead">
-                    <a href="#" class="btn btn-lg btn-default">Learn more</a>
+                    <a href="#" class="btn btn-lg btn-default">Analyze me!</a>
+                    <!--<a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>-->
                 </p>
             </div>
-
-            <!--<div class="mastfoot">-->
-            <!--<div class="inner">-->
-            <!--<p>Thank you for the cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>-->
-            <!--</div>-->
-            <!--</div>-->
 
         </div>
 
@@ -65,6 +84,15 @@
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+
+<!-- Menu Toggle Script -->
+<script>
+    $("#nav-icon1").click(function (e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+        $(this).toggleClass("open");
+    });
+</script>
 
 </body>
 </html>
