@@ -26,13 +26,20 @@ a:hover {
 html,
 body {
     height: 100%;
-    background-color: #333;
+    /*background-color: #333;*/
+    background: url('../images/bg.jpg') no-repeat center center fixed;
+    background-size: 1920px 1080px;
+    font-family: Helvetica Neue, sans-serif; /*,Helvetica,Arial,sans-serif !important;*/
+    font-size: 36px !important;
+    font-weight: lighter !important;
+    line-height: 60px;
+    /*letter-spacing: 5px;*/
 }
 
 body {
     color: #fff;
     text-align: center;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, .5);
+    /*text-shadow: 0 1px 3px rgba(0, 0, 0, .5);*/
 }
 
 /* Extra markup and styles for table-esque vertical and horizontal centering */
@@ -41,7 +48,7 @@ body {
     width: 100%;
     height: 100%; /* For at least Firefox */
     min-height: 100%;
-    -webkit-box-shadow: inset 0 0 100px rgba(0, 0, 0, .5);
+    /*-webkit-box-shadow: inset 0 0 100px rgba(0, 0, 0, .5);*/
     box-shadow: inset 0 0 100px rgba(0, 0, 0, .5);
 }
 
@@ -53,83 +60,54 @@ body {
 .cover-container {
     margin-right: auto;
     margin-left: auto;
+    /*width: 1454px !important;*/
+    /*height: 775px !important;*/
+    /*margin-top: 50px;*/
+    /*margin-bottom: 50px;*/
+    /*margin-left: 50px;*/
+    /*margin-right: 50px;*/
+    /*border-style: solid;*/
+    /*border-width: 1px;*/
+    /*border-color: #B6B6B6;*/
+}
+
+.intro-text {
+    width: 1509px;
+    height: 240px;
+    text-align: justify;
+    font-size: 28px;
+    color: #B03D40;
+    margin-top: 90px;
+}
+
+#analyze-me {
+    width: 260px;
+    height: 70px;
+    line-height: 70px;
+    color: #5d5d5d;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.65);
+    border-style: solid;
+    border-color: #D59395;
+    padding: 10px;
+}
+
+#analyze-me a {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+    font-size: 26px;
+    color: #5d5d5d;
+    padding-left: 63px;
+    padding-right: 63px;
+    padding-top: 22px;
+    padding-bottom: 22px;
 }
 
 /* Padding for spacing */
 .inner {
     padding: 30px;
-}
-
-/*
- * Header
- */
-.masthead-brand {
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.masthead-nav > li {
-    display: inline-block;
-}
-
-.masthead-nav > li + li {
-    margin-left: 20px;
-}
-
-.masthead-nav > li > a {
-    padding-right: 0;
-    padding-left: 0;
-    font-size: 16px;
-    font-weight: bold;
-    color: #fff; /* IE8 proofing */
-    color: rgba(255, 255, 255, .75);
-    border-bottom: 2px solid transparent;
-}
-
-.masthead-nav > li > a:hover,
-.masthead-nav > li > a:focus {
-    background-color: transparent;
-    border-bottom-color: #a9a9a9;
-    border-bottom-color: rgba(255, 255, 255, .25);
-}
-
-.masthead-nav > .active > a,
-.masthead-nav > .active > a:hover,
-.masthead-nav > .active > a:focus {
-    color: #fff;
-    border-bottom-color: #fff;
-}
-
-@media (min-width: 768px) {
-    .masthead-brand {
-        float: left;
-    }
-
-    .masthead-nav {
-        float: right;
-    }
-}
-
-/*
- * Cover
- */
-
-.cover {
-    padding: 0 20px;
-}
-
-.cover .btn-lg {
-    padding: 10px 20px;
-    font-weight: bold;
-}
-
-/*
- * Footer
- */
-
-.mastfoot {
-    color: #999; /* IE8 proofing */
-    color: rgba(255, 255, 255, .5);
+    margin-top: 380px;
 }
 
 /* Toggle Styles */
@@ -147,7 +125,6 @@ body {
 }
 
 #sidebar-wrapper {
-    z-index: 1000;
     position: fixed;
     left: 250px;
     width: 0;
@@ -211,7 +188,7 @@ body {
 
 .sidebar-nav > .sidebar-brand {
     height: 65px;
-    font-size: 18px;
+    /*font-size: 18px;*/
     line-height: 60px;
 }
 
@@ -271,22 +248,20 @@ body {
     }
 }
 
-@media (min-width: 992px) {
-    .masthead,
-    .mastfoot,
-    .cover-container {
-        width: 700px;
-    }
-}
+/*@media (min-width: 992px) {*/
+/*.cover-container {*/
+/*width: 700px;*/
+/*}*/
+/*}*/
 
 /* hamburger icon */
 /* Icon 1 */
 
 #nav-icon1 {
-    width: 25px;
-    height: 5px;
+    width: 50px;
+    height: 38px;
     position: static;
-    margin: 10px 10px auto;
+    margin: 50px 50px auto;
     -webkit-transform: rotate(0deg);
     -moz-transform: rotate(0deg);
     -o-transform: rotate(0deg);
@@ -301,7 +276,7 @@ body {
 #nav-icon1 span {
     display: block;
     position: absolute;
-    height: 4px;
+    height: 7px;
     width: 100%;
     background: #ffffff;
     border-radius: 2px;
@@ -322,11 +297,11 @@ body {
 }
 
 #nav-icon1 span:nth-child(2) {
-    top: 7px;
+    top: 15px;
 }
 
 #nav-icon1 span:nth-child(3) {
-    top: 14px;
+    top: 30px;
 }
 
 #nav-icon1.open span:nth-child(1) {
@@ -348,4 +323,10 @@ body {
     -moz-transform: rotate(-135deg);
     -o-transform: rotate(-135deg);
     transform: rotate(-135deg);
+}
+
+.naive {
+    top: 45px;
+    position: absolute;
+    margin-left: 150px;
 }
