@@ -1,0 +1,110 @@
+Skip to content
+This repository
+Search
+Pull requests
+Issues
+Gist
+ @kojicz983
+ Watch 24
+  Star 77
+  Fork 78 crossbario/crossbarexamples
+ Code  Issues 16  Pull requests 1  Projects 0  Wiki  Pulse  Graphs
+Branch: master Find file Copy pathcrossbarexamples/authentication/ticket/static/web/index.html
+a968958  on Dec 29, 2015
+@oberstet oberstet polish
+1 contributor
+RawBlameHistory     
+127 lines (105 sloc)  4.31 KB
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+   </head>
+   <body>
+      <h1>WAMP Ticket-based Authentication</h1>
+      <p>Open JavaScript console to watch output.</p>
+
+      <script>AUTOBAHN_DEBUG = false;</script>
+      <script src="/js/autobahn.min.jgz"></script>
+      <script>
+         console.log("Ok, AutobahnJS loaded", autobahn.version);
+         // authenticate using authid "joe"
+         var principal = "joe";
+         var ticket = "secret!!!";
+         // this callback is fired during Ticket-based authentication
+         //
+         function onchallenge (session, method, extra) {
+            console.log("onchallenge", method, extra);
+            if (method === "ticket") {
+               return ticket;
+            } else {
+               throw "don't know how to authenticate using '" + method + "'";
+            }
+         }
+         var connection = new autobahn.Connection({
+            url: 'ws://127.0.0.1:8080/ws',
+            realm: 'realm1',
+            // the following attributes must be set for Ticket-based authentication
+            //
+            authmethods: ["ticket"],
+            authid: principal,
+            onchallenge: onchallenge
+         });
+         connection.onopen = function (session, details) {
+            console.log("connected session with ID " + session.id);
+            console.log("authenticated using method '" + details.authmethod + "' and provider '" + details.authprovider + "'");
+            console.log("authenticated with authid '" + details.authid + "' and authrole '" + details.authrole + "'");
+            function news(args) {
+               console.log("args: " + args[0]);
+            }
+            
+            session.subscribe('com.admin.news', news);
+            
+            // call a procedure we are allowed to call (so this should succeed)
+            session.call('com.admin.get_account').then(
+                function (res) {
+                    /*
+                    * check client credentials, if it's ok, subscribe client into his channel
+                    * */
+                    console.log('S com.admin.get_account', res);
+                },
+                function (err) {
+                    console.log('E com.admin.get_account', err);
+                }
+            );
+            
+            session.call('com.admin.get_details', ['SI56990000000001523']).then(
+                function (res) {
+                    /*
+                    * check client credentials, if it's ok, subscribe client into his channel
+                    * */
+                    console.log('S com.admin.get_details', res);
+                },
+                function (err) {
+                    console.log('E com.admin.get_details', err);
+                }
+            );
+            
+            session.call('com.admin.get_transactions', ['SI56990000000001523']).then(
+                function (res) {
+                    /*
+                    * check client credentials, if it's ok, subscribe client into his channel
+                    * */
+                    console.log('S com.admin.get_transactions', res);
+                },
+                function (err) {
+                    console.log('E com.admin.get_transactions', err);
+                }
+            );
+            
+
+         };
+         connection.onclose = function (reason, details) {
+            console.log("disconnected", reason, details.reason, details);
+         }
+         connection.open();
+      </script>
+   </body>
+</html>
+Contact GitHub API Training Shop Blog About
+© 2016 GitHub, Inc. Terms Privacy Security Status Help

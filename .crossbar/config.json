@@ -1,0 +1,92 @@
+{
+    "version": 2,
+    "workers": [
+        {
+            "type": "router",
+            "options": {
+                "pythonpath": [
+                    ".."
+                ]
+            },
+            "realms": [
+                {
+                    "name": "realm1",
+                    "roles": [
+                        {
+                            "name": "backend",
+                            "permissions": [
+                                {
+                                    "uri": "",
+                                    "match": "prefix",
+                                    "allow": {
+                                        "call": true,
+                                        "register": true,
+                                        "publish": true,
+                                        "subscribe": true
+                                    },
+                                    "disclose": {
+                                        "caller": false,
+                                        "publisher": false
+                                    },
+                                    "cache": true
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "transports": [
+                {
+                    "type": "web",
+                    "endpoint": {
+                        "type": "tcp",
+                        "port": 8080
+                    },
+                    "options": {
+                        "access_log": true,
+                        "display_tracebacks": true
+                    },
+                    "paths": {
+                        "/": {
+                            "type": "static",
+                            "directory": "../static"
+                        },
+                        "ws": {
+                            "type": "websocket",
+                            "serializers": [
+                                "json"
+                            ],
+                            "auth": {
+                                "ticket": {
+                                    "type": "static",
+                                    "principals": {
+                                        "joe": {
+                                            "ticket": "secret!!!",
+                                            "role": "backend"
+                                        },
+                                        "client1": {
+                                            "ticket": "123sekret",
+                                            "role": "backend"
+                                        },
+                                        "client2": {
+                                            "ticket": "${MYTICKET}",
+                                            "role": "backend"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            ],
+            "components": [
+                {
+                    "type": "class",
+                    "classname": "backend.BackendSession",
+                    "realm": "realm1",
+                    "role": "backend"
+                }
+            ]
+        }
+    ]
+}
