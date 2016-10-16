@@ -129,8 +129,8 @@
                     </form>
                 </div>
                 <div id="graphics-page" style="display: none;">
-                    <img src="images/graph1.png">
-                    <img src="images/graph2.png">
+                    <img src="images/graph1.png" id="graph1">
+                    <img src="images/graph2.png" id="graph2">
                 </div>
             </div>
         </div>
@@ -154,7 +154,7 @@
 
     $(document).ready(function (e) {
 
-        setTimeout(toggleLoadingScreen, 400);
+        setTimeout(toggleLoadingScreen, 3000);
 
         $("#nav-icon1").click(function (e) {
             e.preventDefault();
@@ -177,7 +177,7 @@
             $("#questions-page").hide("slow");
             $("#graphics-page").hide("slow");
             $("#loading-page").show("slow");
-            setTimeout(toggleLoadingScreen, 400);
+            setTimeout(toggleLoadingScreen, 2500);
         })
     });
 </script>

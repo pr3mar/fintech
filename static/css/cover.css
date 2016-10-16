@@ -419,3 +419,17 @@ body {
     background-color: rgba(0, 0, 0, 0.7);
     padding-top: 200px;
 }
+
+#graph1 {
+    /* 414x572  */
+    width: 414px;
+    height: 572px;
+    margin-right: 100px;
+}
+
+#graph2 {
+    /* 414x572  */
+    width: 414px;
+    height: 572px;
+    margin-left: 100px;
+}
