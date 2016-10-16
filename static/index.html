@@ -17,6 +17,9 @@
     <!-- Custom styles for this template -->
     <link href="css/cover.css" rel="stylesheet">
     <link href="css/loader.css" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.2/css/bootstrap-select.min.css">
+
 </head>
 
 <body>
@@ -52,6 +55,19 @@
         <div class="cover-container container-fluid">
             <!-- toggle this comment to get the landing page! -->
             <div class="inner cover">
+                <div id="loading-page" style="display: none;">
+                    <div class="loader">
+                        <div class="loader__bar"></div>
+                        <div class="loader__bar"></div>
+                        <div class="loader__bar"></div>
+                        <div class="loader__bar"></div>
+                        <div class="loader__bar"></div>
+                        <div class="loader__ball"></div>
+                    </div>
+                    <div class="intro-text">
+                        WE ARE ANALYZING YOUR BANKING DATA.
+                    </div>
+                </div>
                 <div id="landing-page" style="display: none;">
                     <span id="analyze-me">
                         <a href="#"> Analyze me </a>
@@ -64,19 +80,42 @@
                         MANAGE YOUR PORTFOLIO TO HELP YOU REACH YOUR GOALS.
                     </div>
                 </div>
-                <div id="loading-page">
-                    <div class="loader">
-                        <div class="loader__bar"></div>
-                        <div class="loader__bar"></div>
-                        <div class="loader__bar"></div>
-                        <div class="loader__bar"></div>
-                        <div class="loader__bar"></div>
-                        <div class="loader__ball"></div>
+                <div id="questions-page">
+                    <form class="form-inline">
+                        I HAVE
+                        <input title="years" type="number" class="form-control"/>, AND I LIVE WITH
+                        <select class="span5 selectpicker show-tick" title="relationship status">
+                            <option value="1">ALONE</option>
+                            <option value="2">WITH MY FAMILY</option>
+                            <option value="3">WITH SOMEONE ELSE</option>
+                        </select>
+                    </form>
+                    <div class="row">
+                        I OWN A CAR
+                        <select class="selectpicker show-tick" title="choose">
+                            <option value="1">TRUE</option>
+                            <option value="2">FALSE</option>
+                        </select>
+                        AND I LIVE IN
+                        <select class="selectpicker show-tick" title="Choose a country">
+                            <option value="1">Slovenia</option>
+                            <option value="2">Serbia</option>
+                            <option value="3">Croatia</option>
+                        </select>
                     </div>
-                    <div class="intro-text">
-                        WE ARE ANALYZING YOUR BANKING DATA.<br>
-                        THIS MIGHT TAKE A FEW MOMENTS.
+                    <div class="row">
+                        I travel
+                        <select class="selectpicker show-tick" title="travel frequency">
+                            <option value="1">often</option>
+                            <option value="2">rarely</option>
+                            <option value="3">occasionally</option>
+                        </select>.
                     </div>
+                    <form class="form-inline    ">
+                        I plan on investing
+                        <input title="invetment" type="number" class="form-control"/>
+                    </form>
+
                 </div>
             </div>
         </div>
@@ -88,6 +127,8 @@
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.2/js/bootstrap-select.min.js"></script>
+
 
 <!-- Menu Toggle Script -->
 <script>
