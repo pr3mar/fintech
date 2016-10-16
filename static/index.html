@@ -48,14 +48,14 @@
         <span></span>
     </div>
     <div class="naive">
-        ANALYZE ME
+        <a href="#" id="goBack">ANALYZE ME</a>
     </div>
     <!-- content -->
     <div class="site-wrapper-inner" id="page-content-wrapper">
         <div class="cover-container container-fluid">
             <!-- toggle this comment to get the landing page! -->
             <div class="inner cover">
-                <div id="loading-page" style="display: none;">
+                <div id="loading-page">
                     <div class="loader">
                         <div class="loader__bar"></div>
                         <div class="loader__bar"></div>
@@ -65,7 +65,7 @@
                         <div class="loader__ball"></div>
                     </div>
                     <div class="intro-text">
-                        WE ARE ANALYZING YOUR BANKING DATA.
+                        WE ARE ANALYZING YOUR BANKING DATA
                     </div>
                 </div>
                 <div id="landing-page" style="display: none;">
@@ -80,42 +80,57 @@
                         MANAGE YOUR PORTFOLIO TO HELP YOU REACH YOUR GOALS.
                     </div>
                 </div>
-                <div id="questions-page">
+                <div id="questions-page" style="display: none;">
                     <form class="form-inline">
                         I HAVE
                         <input title="years" type="number" class="form-control"/>, AND I LIVE WITH
-                        <select class="span5 selectpicker show-tick" title="relationship status">
+                        <select class="span5 selectpicker show-tick" title="relationship status" id="living">
                             <option value="1">ALONE</option>
                             <option value="2">WITH MY FAMILY</option>
                             <option value="3">WITH SOMEONE ELSE</option>
                         </select>
                     </form>
-                    <div class="row">
+                    <form class="row" style="margin-top:100px;">
                         I OWN A CAR
-                        <select class="selectpicker show-tick" title="choose">
+                        <select class="selectpicker show-tick" title="choose" id="has-car">
                             <option value="1">TRUE</option>
                             <option value="2">FALSE</option>
                         </select>
                         AND I LIVE IN
-                        <select class="selectpicker show-tick" title="Choose a country">
-                            <option value="1">Slovenia</option>
-                            <option value="2">Serbia</option>
-                            <option value="3">Croatia</option>
+                        <select class="selectpicker show-tick" title="Choose a country" id="lives-in">
+                            <option value="1">SLOVENIA</option>
+                            <option value="2">SERBIA</option>
+                            <option value="3">CROATIA</option>
                         </select>
-                    </div>
-                    <div class="row">
-                        I travel
-                        <select class="selectpicker show-tick" title="travel frequency">
-                            <option value="1">often</option>
-                            <option value="2">rarely</option>
-                            <option value="3">occasionally</option>
+                    </form>
+                    <form class="row" style="margin-top:100px;">
+                        I TRAVEL
+                        <select class="selectpicker show-tick" title="travel frequency" id="travel-freq">
+                            <option value="1">OFTEN</option>
+                            <option value="2">RARELY</option>
+                            <option value="3">OCCASIONALLY</option>
                         </select>.
-                    </div>
-                    <form class="form-inline    ">
-                        I plan on investing
-                        <input title="invetment" type="number" class="form-control"/>
+                    </form>
+                    <form class="form-inline" style="margin-top:100px;">
+                        I PLAN ON INVESTING
+                        <input title="invetment" type="number" class="form-control" id="investment" placeholder="$"/>
                     </form>
 
+                    <hr style="border-top: 1px solid #6377C4; margin-left: 350px; margin-right: 350px; margin-top: 50px">
+
+                    <form class="form-inline" id="privacy-terms">
+                        <input type="checkbox" class="form-control" id="agree-terms"/>
+                        <label for="agree-terms">By using Analyze me site and its services, you agree to bound by this
+                            Privacy Policy.</label>
+                    </form>
+
+                    <form class="form-inline" id="submit-button">
+                        <button type="button" class="btn btn-default">CALCULATE</button>
+                    </form>
+                </div>
+                <div id="graphics-page" style="display: none;">
+                    <img src="images/graph1.png">
+                    <img src="images/graph2.png">
                 </div>
             </div>
         </div>
@@ -132,10 +147,38 @@
 
 <!-- Menu Toggle Script -->
 <script>
-    $("#nav-icon1").click(function (e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-        $(this).toggleClass("open");
+    function toggleLoadingScreen() {
+        $("#loading-page").toggle("slow");
+        $("#landing-page").toggle("slow");
+    }
+
+    $(document).ready(function (e) {
+
+        setTimeout(toggleLoadingScreen, 400);
+
+        $("#nav-icon1").click(function (e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+            $(this).toggleClass("open");
+        });
+
+        $("#analyze-me").click(function (e) {
+            $("#landing-page").toggle("slow");
+            $("#questions-page").toggle("slow");
+        });
+
+        $("#submit-button").click(function (e) {
+            $("#questions-page").toggle("slow");
+            $("#graphics-page").toggle("slow");
+        });
+
+        $("#goBack").click(function (e) {
+            $("#landing-page").hide("slow");
+            $("#questions-page").hide("slow");
+            $("#graphics-page").hide("slow");
+            $("#loading-page").show("slow");
+            setTimeout(toggleLoadingScreen, 400);
+        })
     });
 </script>
 
